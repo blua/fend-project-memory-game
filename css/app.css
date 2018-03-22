@@ -28,6 +28,11 @@ body {
     flex-direction: column;
 }
 
+.container-won {
+    display: none;
+    text-align: center;
+}
+
 h1 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;

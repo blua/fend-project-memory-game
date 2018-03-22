@@ -64,6 +64,7 @@ for (let i = 0; i < shuffledCards.length; i++) {
 
 let openCardList = [];
 let moveCount = 0;
+let matchedCards = 0;
 
 deck.addEventListener('click', cardClick)
 
@@ -81,6 +82,9 @@ function cardClick(event) {
            }
        }
         incrementCounter();
+        if (matchedCards === 8) {
+            gameWon();
+        }
     }
 }
 
@@ -90,7 +94,6 @@ function turnCard(element) {
 
 function listAsOpen(card) {
     openCardList.unshift(card);
-    console.log(openCardList);
 }
 
 function lockCard() {
@@ -100,6 +103,7 @@ function lockCard() {
         openCards[i].classList.remove('open');
         openCardList = [];
     }
+    matchedCards += 1;
 }
 
 function noMatch(card) {
@@ -116,4 +120,11 @@ function incrementCounter() {
     if (moveCount % 1 === 0) {
         moves.textContent = moveCount;
     }
+}
+
+function gameWon() {
+    const container = document.querySelector('.container');
+    const containerWon = document.querySelector('.container-won');
+    container.setAttribute('style', 'display:none;');
+    containerWon.setAttribute('style', 'display:block;');
 }
