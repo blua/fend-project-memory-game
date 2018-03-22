@@ -30,17 +30,17 @@ let cardArray = [
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
-   var currentIndex = array.length, temporaryValue, randomIndex;
+    var currentIndex = array.length, temporaryValue, randomIndex;
 
-   while (currentIndex !== 0) {
-       randomIndex = Math.floor(Math.random() * currentIndex);
-       currentIndex -= 1;
-       temporaryValue = array[currentIndex];
-       array[currentIndex] = array[randomIndex];
-       array[randomIndex] = temporaryValue;
-   }
+    while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
 
-   return array;
+return array;
 }
 
 const shuffledCards = shuffle(cardArray);
@@ -48,7 +48,7 @@ const shuffledCards = shuffle(cardArray);
 const deck = document.querySelector('.deck');
 
 for (let i = 0; i < shuffledCards.length; i++) {
-   deck.insertAdjacentHTML('beforeend', '<li class="card"><i class="fa ' + cardArray[i] + '"></i></li>');
+    deck.insertAdjacentHTML('beforeend', '<li class="card"><i class="fa ' + cardArray[i] + '"></i></li>');
 }
 
 /*
@@ -73,14 +73,14 @@ function cardClick(event) {
         if (openCardList.length > 1) {
             noMatch();
         }
-       const card = event.target.firstChild.classList[1];
-       turnCard(event.target);
-       listAsOpen(card);
-       if (openCardList.length > 1) {
-           if (openCardList.indexOf(card, 1) !== -1) {
-               lockCard();
-           }
-       }
+        const card = event.target.firstChild.classList[1];
+        turnCard(event.target);
+        listAsOpen(card);
+        if (openCardList.length > 1) {
+            if (openCardList.indexOf(card, 1) !== -1) {
+                lockCard();
+            }
+        }
         incrementCounter();
         if (matchedCards === 8) {
             gameWon();
