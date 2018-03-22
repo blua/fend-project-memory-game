@@ -68,6 +68,9 @@ deck.addEventListener('click', cardClick)
 
 function cardClick(event) {
     if (event.target.nodeName === 'LI') {
+        if (openCardList.length > 1) {
+            noMatch();
+        }
        const card = event.target.firstChild.classList[1];
        turnCard(event.target);
        listAsOpen(card);
@@ -95,4 +98,12 @@ function lockCard() {
         openCards[i].classList.remove('open');
         openCardList = [];
     }
+}
+
+function noMatch(card) {
+    const openCards = document.querySelectorAll('.open');
+    for (let i = 0; i < openCards.length; i++) {
+        openCards[i].classList.remove('open', 'show');
+    }
+    openCardList = [];
 }
