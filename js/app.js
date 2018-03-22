@@ -63,6 +63,7 @@ for (let i = 0; i < shuffledCards.length; i++) {
 */
 
 let openCardList = [];
+let moveCount = 0;
 
 deck.addEventListener('click', cardClick)
 
@@ -79,6 +80,7 @@ function cardClick(event) {
                lockCard();
            }
        }
+        incrementCounter();
     }
 }
 
@@ -106,4 +108,12 @@ function noMatch(card) {
         openCards[i].classList.remove('open', 'show');
     }
     openCardList = [];
+}
+
+function incrementCounter() {
+    const moves = document.querySelector('.moves');
+    moveCount += 0.5;
+    if (moveCount % 1 === 0) {
+        moves.textContent = moveCount;
+    }
 }
