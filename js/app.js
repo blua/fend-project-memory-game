@@ -51,6 +51,8 @@ for (let i = 0; i < shuffledCards.length; i++) {
     deck.insertAdjacentHTML('beforeend', '<li class="card"><i class="fa ' + cardArray[i] + '"></i></li>');
 }
 
+const restart = document.querySelector('.restart');
+
 /*
 * set up the event listener for a card. If a card is clicked:
 *  - display the card's symbol (put this functionality in another function that you call from this one)
@@ -67,6 +69,7 @@ let moveCount = 0;
 let matchedCards = 0;
 
 deck.addEventListener('click', cardClick)
+
 
 function cardClick(event) {
     if (event.target.nodeName === 'LI') {
@@ -101,8 +104,8 @@ function lockCard() {
     for (let i = 0; i < 2; i++) {
         openCards[i].classList.add('match');
         openCards[i].classList.remove('open');
-        openCardList = [];
     }
+    openCardList = [];
     matchedCards += 1;
 }
 
@@ -123,8 +126,10 @@ function incrementCounter() {
 }
 
 function gameWon() {
+    const finalMoves = document.querySelector('.final-moves');
     const container = document.querySelector('.container');
     const containerWon = document.querySelector('.container-won');
-    container.setAttribute('style', 'display:none;');
-    containerWon.setAttribute('style', 'display:block;');
+    finalMoves.textContent = moveCount;
+    container.innerHTML = '';
+    containerWon.setAttribute('style', 'display: table;');
 }
