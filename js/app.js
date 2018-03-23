@@ -70,6 +70,7 @@ let matchedCards = 0;
 
 deck.addEventListener('click', cardClick)
 
+const stars = document.querySelector('.stars');
 
 function cardClick(event) {
     if (event.target.nodeName === 'LI') {
@@ -123,6 +124,13 @@ function incrementCounter() {
     if (moveCount % 1 === 0) {
         moves.textContent = moveCount;
     }
+    switch (moveCount) {
+        case 15 : stars.children[2].firstChild.className ='far fa-star';
+        break;
+        case 20: stars.children[1].firstChild.className ='far fa-star';
+        break;
+        case 25: stars.children[0].firstChild.className ='far fa-star';
+    }
 }
 
 function gameWon() {
@@ -132,4 +140,5 @@ function gameWon() {
     finalMoves.textContent = moveCount;
     container.innerHTML = '';
     containerWon.setAttribute('style', 'display: table;');
+    containerWon.children[2].append(stars);
 }
