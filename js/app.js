@@ -73,7 +73,7 @@ deck.addEventListener('click', cardClick)
 const stars = document.querySelector('.stars');
 
 function cardClick(event) {
-    if (event.target.nodeName === 'LI') {
+    if (event.target.nodeName === 'LI' && !event.target.classList.contains('open') && !event.target.classList.contains('match')) {
         if (openCardList.length > 1) {
             noMatch();
         }
