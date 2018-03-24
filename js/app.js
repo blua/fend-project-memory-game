@@ -107,7 +107,7 @@ function changeTimer() {
     minutes = '0' + Math.floor(time/60).toString();
     seconds = '0' + (time % 60).toString();
     timerSpan.textContent = minutes + ':' + seconds.slice(-2);
-    if (time === 5) {
+    if (time === 599) {
         clearInterval(timer);
         expire();
     }
