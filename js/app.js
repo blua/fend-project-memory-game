@@ -68,16 +68,20 @@ let openCardList = [];
 let moveCount = 0;
 let matchedCards = 0;
 let timer = {}
+let time = 0;
 let minutes = '00';
 let seconds = '00';
 
-deck.addEventListener('click', cardClick)
-
+const container = document.querySelector('.container');
 const stars = document.querySelector('.stars');
+const timerSpan = document.querySelector('.timer');
+
+deck.addEventListener('click', cardClick)
 
 function cardClick(event) {
     if (event.target.nodeName === 'LI' && !event.target.classList.contains('open') && !event.target.classList.contains('match') && openCardList.length < 2) {
         if (moveCount === 0) {
+            time = 0;
             timer = setInterval(changeTimer, 1000);
         }
         const card = event.target.firstChild.classList[1];
@@ -98,14 +102,16 @@ function cardClick(event) {
     }
 }
 
-const timerSpan = document.querySelector('.timer');
-let time = 0;
-
 function changeTimer() {
     time++;
+    console.log(time);
     minutes = '0' + Math.floor(time/60).toString();
     seconds = '0' + (time % 60).toString();
-    timerSpan.textContent = minutes.slice(-2) + ':' + seconds.slice(-2);
+    timerSpan.textContent = minutes + ':' + seconds.slice(-2);
+    if (time === 599) {
+        clearInterval(timer);
+        expire();
+    }
 }
 
 function turnCard(element) {
@@ -153,10 +159,15 @@ function incrementCounter() {
 
 function gameWon() {
     const finalScore = document.querySelector('.final-score');
-    const container = document.querySelector('.container');
     const containerWon = document.querySelector('.container-won');
-    finalScore.textContent =  minutes.slice(-2) + ':' + seconds.slice(-2) + ' and ' + moveCount;
+    finalScore.textContent =  minutes + ':' + seconds.slice(-2) + ' and ' + moveCount;
     container.innerHTML = '';
     containerWon.setAttribute('style', 'display: table;');
     containerWon.children[2].append(stars);
+}
+
+function expire() {
+    const containerExpire = document.querySelector('.container-expire');
+    container.innerHTML = '';
+    containerExpire.setAttribute('style', 'display: table;');
 }
