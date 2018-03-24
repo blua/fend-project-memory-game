@@ -1,3 +1,3 @@
 # How to contribute
 
-The files in this repository are used as the starting point for all students. Because we want students to write the majority of the code themselves, pull requests (most likely) will _not_ be merged into the project.
+This game was created as part of the **Udacity Front-End Web Developer Nanodegree**. It's just an exercise and should be my own work, so I probably won't accept any pull requests, unless you find a typo or some other non-code detail that should be fixed.

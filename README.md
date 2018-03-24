@@ -7,14 +7,12 @@
 
 ## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+You can turn two cards per move - if they match, the symbol will remain visible, but if they don't match you have 0.6 seconds to try to memorize them, to use that knowledge in the following moves. Your goal is to get all 16 cards to remain visible.
 
-To get started, open `js/app.js` and start building out the app's functionality
+Find all the pairs in 14 moves or less to get a 3-star rating.
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+If you are unable to finish the game in 10 minutes, it will expire and you'll have to start a new one.
 
 ## Contributing
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+I will likely not accept pull requests in this repository. For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
