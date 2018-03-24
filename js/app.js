@@ -51,8 +51,6 @@ for (let i = 0; i < shuffledCards.length; i++) {
     deck.insertAdjacentHTML('beforeend', '<li class="card"><i class="fa ' + cardArray[i] + '"></i></li>');
 }
 
-const restart = document.querySelector('.restart');
-
 /*
 * set up the event listener for a card. If a card is clicked:
 *  - display the card's symbol (put this functionality in another function that you call from this one)
@@ -79,6 +77,8 @@ const timerSpan = document.querySelector('.timer');
 deck.addEventListener('click', cardClick)
 
 function cardClick(event) {
+    // Only works if the target is a card (li element) and it's not open or matched.
+    // Doesn't work if 2 cards are already open (i.e. if player clicks on 3rd card too quickly).
     if (event.target.nodeName === 'LI' && !event.target.classList.contains('open') && !event.target.classList.contains('match') && openCardList.length < 2) {
         if (moveCount === 0) {
             time = 0;
@@ -142,12 +142,14 @@ function noMatch(card) {
 function incrementCounter() {
     const moves = document.querySelector('.moves');
     moveCount += 0.5;
-    if (moveCount > 1 && moveCount % 1 === 0) {
+    if (moveCount === 1) {
+        moves.textContent = moveCount + ' move';
+    }
+    else if (moveCount % 1 === 0) {
         moves.textContent = moveCount + ' moves';
     }
+    // Lose stars upon reaching a certain number of moves
     switch (moveCount) {
-        case 1: moves.textContent = moveCount + ' move';
-        break;
         case 15 : stars.children[2].firstChild.className ='far fa-star';
         break;
         case 20: stars.children[1].firstChild.className ='far fa-star';
