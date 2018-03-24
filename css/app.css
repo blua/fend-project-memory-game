@@ -96,24 +96,33 @@ h1 {
  */
 
 .score-panel {
-    text-align: left;
+    text-align: center;
     width: 345px;
     margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
 }
 
-.score-panel .stars {
+.stars {
     margin: 0;
     padding: 0;
     display: inline-block;
-    margin: 0 5px 0 0;
 }
 
-.score-panel .stars li {
+.stars li {
     list-style: none;
+    display: inline-block;
+}
+
+.timer {
     display: inline-block;
 }
 
 .score-panel .restart {
     float: right;
     cursor: pointer;
+}
+
+button {
+    margin-top: 20px;
 }

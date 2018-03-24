@@ -81,8 +81,7 @@ function cardClick(event) {
         if (openCardList.length > 1) {
             if (openCardList.indexOf(card, 1) !== -1) {
                 lockCard();
-            }
-            else {
+            } else {
                 setTimeout(function() {noMatch()}, 500);
             }
         }
@@ -122,10 +121,12 @@ function noMatch(card) {
 function incrementCounter() {
     const moves = document.querySelector('.moves');
     moveCount += 0.5;
-    if (moveCount % 1 === 0) {
-        moves.textContent = moveCount;
+    if (moveCount > 1 && moveCount % 1 === 0) {
+        moves.textContent = moveCount + ' moves';
     }
     switch (moveCount) {
+        case 1: moves.textContent = moveCount + ' move';
+        break;
         case 15 : stars.children[2].firstChild.className ='far fa-star';
         break;
         case 20: stars.children[1].firstChild.className ='far fa-star';
