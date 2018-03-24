@@ -104,11 +104,10 @@ function cardClick(event) {
 
 function changeTimer() {
     time++;
-    console.log(time);
     minutes = '0' + Math.floor(time/60).toString();
     seconds = '0' + (time % 60).toString();
     timerSpan.textContent = minutes + ':' + seconds.slice(-2);
-    if (time === 599) {
+    if (time === 5) {
         clearInterval(timer);
         expire();
     }
