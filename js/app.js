@@ -73,16 +73,15 @@ deck.addEventListener('click', cardClick)
 const stars = document.querySelector('.stars');
 
 function cardClick(event) {
-    if (event.target.nodeName === 'LI' && !event.target.classList.contains('open') && !event.target.classList.contains('match')) {
-
+    if (event.target.nodeName === 'LI' && !event.target.classList.contains('open') && !event.target.classList.contains('match') && openCardList.length < 2) {
         const card = event.target.firstChild.classList[1];
         turnCard(event.target);
         listAsOpen(card);
-        if (openCardList.length > 1) {
+        if (openCardList.length >1) {
             if (openCardList.indexOf(card, 1) !== -1) {
                 lockCard();
             } else {
-                setTimeout(function() {noMatch()}, 500);
+                setTimeout(function() {noMatch()}, 600);
             }
         }
         incrementCounter();
