@@ -152,9 +152,7 @@ function incrementCounter() {
     switch (moveCount) {
         case 15 : stars.children[2].firstChild.className ='fa fa-star-o';
         break;
-        case 20: stars.children[1].firstChild.className ='fa fa-star-o';
-        break;
-        case 25: stars.children[0].firstChild.className ='fa fa-star-o';
+        case 22: stars.children[1].firstChild.className ='fa fa-star-o';
     }
 }
 
