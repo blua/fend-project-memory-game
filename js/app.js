@@ -150,11 +150,11 @@ function incrementCounter() {
     }
     // Lose stars upon reaching a certain number of moves
     switch (moveCount) {
-        case 15 : stars.children[2].firstChild.className ='far fa-star';
+        case 15 : stars.children[2].firstChild.className ='fa fa-star-o';
         break;
-        case 20: stars.children[1].firstChild.className ='far fa-star';
+        case 20: stars.children[1].firstChild.className ='fa fa-star-o';
         break;
-        case 25: stars.children[0].firstChild.className ='far fa-star';
+        case 25: stars.children[0].firstChild.className ='fa fa-star-o';
     }
 }
 
